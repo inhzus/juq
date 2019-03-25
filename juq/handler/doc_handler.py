@@ -3,6 +3,7 @@
 
 from typing import Union
 
+from juq.decorators import necessary_params
 from juq.request import Request
 
 
@@ -18,6 +19,7 @@ def get_doc_info(repo_id: Union[int, str], id_: Union[int, str], **kwargs):
     return Request.send(method, uri, kwargs)
 
 
+@necessary_params(('title', 'slug', 'body',))
 def create_doc(repo_id: Union[int, str], **kwargs):
     uri = f'/repos/{repo_id}/docs'
     method = 'POST'

@@ -32,6 +32,8 @@ class DocSerializer:
     book: BookSerializer
     # user: UserSerializer
     last_editor: UserSerializer
+    cover: str
+    custom_description: str
 
 
 @dataclass
@@ -40,6 +42,7 @@ class DocDetailSerializer(DocSerializer):
     body_draft: str
     body_html: str
     body_lake: str
+    creator: UserSerializer
     creator_id: int
     deleted_at: str
     abilities: dict
