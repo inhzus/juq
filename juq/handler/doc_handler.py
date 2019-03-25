@@ -3,8 +3,8 @@
 
 from typing import Union
 
-from juq.decorators import necessary_params
-from juq.request import Request
+from juq.misc.decorators import necessary_params
+from juq.misc.request import Request
 
 
 def get_repo_docs(repo_id: Union[int, str]):

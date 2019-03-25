@@ -7,7 +7,7 @@ from pprint import pprint
 import requests
 
 from juq.config import config
-from juq.exceptions import STATUS_EXCEPTION_MAP
+from juq.misc.exceptions import STATUS_EXCEPTION_MAP
 
 
 class Request:

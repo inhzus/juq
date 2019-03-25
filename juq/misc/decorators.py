@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # created by inhzus
 
-from juq.exceptions import MissingFieldsException
+from juq.misc.exceptions import MissingFieldsException
 from juq.serializer import SerializerBuilder
 
 import types

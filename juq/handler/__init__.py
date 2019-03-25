@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from juq.decorators import build_serializer
+from juq.misc.decorators import build_serializer
 from . import doc_handler, group_handler, repo_handler, user_handler
 
 build_serializer(doc_handler)

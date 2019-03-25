@@ -2,7 +2,7 @@
 # created by inhzus
 from typing import Union, List
 
-from juq.request import Request
+from juq.misc.request import Request
 from juq.serializer import UserSerializer, GroupDetailSerializer, GroupUserSerializer, GroupSerializer
 
 

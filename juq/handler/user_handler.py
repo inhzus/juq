@@ -3,8 +3,8 @@
 from pprint import pprint
 from typing import Union, List
 
-from juq.request import Request
-from juq.decorators import necessary_params
+from juq.misc.request import Request
+from juq.misc.decorators import necessary_params
 from juq.serializer import UserDetailSerializer, DocSerializer, BookSerializer
 
 
