@@ -45,20 +45,41 @@ class MarkdownParser:
                 name=m.group(1),
                 uri=self.generate_image_url(m.group(2))),
             self.content,
-            re.X)
+            re.X
+        )
+
+    def remove_hexo_header(self):
+        self.content = re.sub(
+            r'^-{3,}\n'  # first line of hexo header
+            r'[\s\S]*\n'  # every thing inside
+            r'-{3,}\n',  # last line of hexo header
+            '',
+            self.content,
+            re.X
+        )
+        # self.content = re.sub(
+        #     r'-*.'
+        # )
 
     def run(self):
+        self.remove_hexo_header()
         self.parse_image()
 
     def __repr__(self):
         return self.content
 
 
+def parse_md(filename: str):
+    parser = MarkdownParser(filename)
+    parser.run()
+    return parser.content
+
+
 if __name__ == '__main__':
     markdown_filename = '../../test/assets/2019-03-20-octree-color-quantization.md'
-    parser = MarkdownParser(markdown_filename)
-    parser.run()
-    print(parser)
+    content = codecs.open(markdown_filename, 'r', encoding='utf-8').read()
+    print(re.findall(r'^-{3,}\n[\s\S]*\n-{3,}\n', content))
+    # print(parse_md(markdown_filename))
     # print(parser.generate_image_url(None))
     # print(parser.parse_image())
     pass

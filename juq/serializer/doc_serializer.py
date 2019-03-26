@@ -2,8 +2,8 @@
 # created by inhzus
 
 from dataclasses import dataclass
+from colorama import Fore, Style
 
-# from juq.serializer import UserSerializer, BookSerializer
 from .book_serializer import BookSerializer
 from .user_serializer import UserSerializer
 
@@ -30,10 +30,14 @@ class DocSerializer:
     last_editor_id: int
     word_count: int
     book: BookSerializer
-    # user: UserSerializer
     last_editor: UserSerializer
     cover: str
     custom_description: str
+
+    def __repr__(self):
+        return f'id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\t' \
+               f'slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\t' \
+               f'title: {Fore.BLUE}{self.title}{Style.RESET_ALL}'
 
 
 @dataclass
@@ -46,6 +50,14 @@ class DocDetailSerializer(DocSerializer):
     creator_id: int
     deleted_at: str
     abilities: dict
+
+    def __repr__(self):
+        return f'id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\n' \
+               f'slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\n' \
+               f'title: {Fore.BLUE}{self.title}{Style.RESET_ALL}\n' \
+               f'user_id: {Fore.BLUE}{self.user_id}{Style.RESET_ALL}\n' \
+               f'book_id: {Fore.BLUE}{self.book_id}{Style.RESET_ALL}\n' \
+               f'updated: {Fore.BLUE}{self.updated_at}{Style.RESET_ALL}'
 
 
 if __name__ == '__main__':

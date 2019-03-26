@@ -4,6 +4,8 @@
 
 from dataclasses import dataclass
 
+from colorama import Fore, Style
+
 
 # class UserSerializer:
 #     # noinspection PyShadowingBuiltins
@@ -18,7 +20,7 @@ from dataclasses import dataclass
 # UserSerializer = namedtuple('UserSerializer', "id type login name avatar_url created_at updated_at")
 
 
-@dataclass
+@dataclass(repr=False)
 class GroupSerializer:
     id: int
     login: str
@@ -31,29 +33,54 @@ class GroupSerializer:
     created_at: str
     updated_at: str
 
+    def __repr__(self):
+        return f'id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\t' \
+               f'login: {Fore.BLUE}{self.login}{Style.RESET_ALL}\t' \
+               f'name: {Fore.BLUE}{self.name}{Style.RESET_ALL}\t'
 
-@dataclass
+
+@dataclass(repr=False)
 class GroupDetailSerializer(GroupSerializer):
     space_id: int
     books_count: int
     public_books_count: int
     public: int
-    owner_id: int = 0
-    abilities: dict = None
-    members_count: int = 0
+    owner_id: int
+    abilities: dict
+    members_count: int
+
+    def __repr__(self):
+        return f'     id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\n' \
+               f'  login: {Fore.BLUE}{self.login}{Style.RESET_ALL}\n' \
+               f'   name: {Fore.BLUE}{self.name}{Style.RESET_ALL}\n' \
+               f'   desc: {Fore.BLUE}{self.description}{Style.RESET_ALL}\n' \
+               f'  books: {Fore.BLUE}{self.books_count}{Style.RESET_ALL}\n' \
+               f'  owner: {Fore.BLUE}{self.owner_id}{Style.RESET_ALL}\n' \
+               f'members: {Fore.BLUE}{self.members_count}{Style.RESET_ALL}'
 
 
-@dataclass
+@dataclass(repr=False)
 class UserSerializer(GroupSerializer):
     type: str
     followers_count: int
     following_count: int
 
+    # def __repr__(self):
+    #     return f'id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\t' \
+    #            f'login: {Fore.BLUE}{self.id}{Style.RESET_ALL}\t' \
+    #            f'name: {Fore.BLUE}{self.id}{Style.RESET_ALL}'
 
-@dataclass
+
+@dataclass(repr=False)
 class UserDetailSerializer(GroupDetailSerializer):
-    type: str = None
-    account_id: int = 0
+    type: str
+    account_id: int
+
+    def __repr__(self):
+        return f'   id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\n' \
+               f'login: {Fore.BLUE}{self.login}{Style.RESET_ALL}\n' \
+               f' name: {Fore.BLUE}{self.name}{Style.RESET_ALL}\n' \
+               f' desc: {Fore.BLUE}{self.description}{Style.RESET_ALL}'
 
 
 if __name__ == '__main__':

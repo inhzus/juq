@@ -3,6 +3,8 @@
 
 from dataclasses import dataclass
 
+from colorama import Fore, Style
+
 from .user_serializer import UserSerializer
 
 
@@ -24,6 +26,11 @@ class BookSerializer:
     creator_id: int
     namespace: str
 
+    def __repr__(self):
+        return f'id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\t' \
+               f'slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\t' \
+               f'name: {Fore.BLUE}{self.name}{Style.RESET_ALL}'
+
 
 @dataclass
 class BookDetailSerializer(BookSerializer):
@@ -33,6 +40,14 @@ class BookDetailSerializer(BookSerializer):
     pinned_at: str
     abilities: dict = None
 
+    def __repr__(self):
+        return f'     id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\n' \
+               f'   slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\n' \
+               f'   name: {Fore.BLUE}{self.name}{Style.RESET_ALL}\n' \
+               f'  items: {Fore.BLUE}{self.items_count}{Style.RESET_ALL}\n' \
+               f'user_id: {Fore.BLUE}{self.user_id}{Style.RESET_ALL}\n' \
+               f'updated: {Fore.BLUE}{self.updated_at}{Style.RESET_ALL}'
+
 
 @dataclass
 class BookTocSerializer:
@@ -40,6 +55,8 @@ class BookTocSerializer:
     slug: str
     depth: int
 
-
-if __name__ == '__main__':
-    pass
+    def __repr__(self):
+        return '|-' * self.depth + \
+               f'depth: {Fore.BLUE}{self.depth}{Style.RESET_ALL}\t' \
+               f'slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\t' \
+               f'title: {Fore.BLUE}{self.title}{Style.RESET_ALL}'
