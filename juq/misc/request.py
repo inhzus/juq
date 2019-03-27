@@ -8,6 +8,7 @@ import requests
 
 from juq.config import config
 from juq.misc.exceptions import STATUS_EXCEPTION_MAP
+from juq.serializer import SerializerBuilder
 
 
 class Request:
@@ -32,7 +33,10 @@ class Request:
         if response.status_code in STATUS_EXCEPTION_MAP:
             message = d['message']
             raise STATUS_EXCEPTION_MAP[response.status_code](f"{method} {uri}: {message}")
-        return d
+        if config['SERIALIZE']:
+            return SerializerBuilder.build(d)
+        else:
+            return d
 
 
 if __name__ == '__main__':

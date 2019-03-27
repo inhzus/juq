@@ -221,25 +221,21 @@ TOKEN = ''
 
 TIMEOUT 为请求 API 延迟.
 
-SERIALIZE 为是否序列化结构, 默认序列化, 方便 type hints.
+SERIALIZE 为是否序列化结构, 默认 True, 方便 type hints. 在当作 SDK 使用时, 为了避免 API 变动导致序列化丢失信息, 非常建议设为 False.
 
 TOKEN 为 Personal Access Token.
 
 配置方法参考 [上文](#config).
 
-当然, 也可以在代码中进行配置, 如
+当然, 也可以在代码中进行配置, 只要在 SDK 调用前设置即可, 如
 
 ```python
 from juq import config
+from juq import user_handler
 
 config['SERIALIZE'] = False
-
-from juq import doc_handler
-
-config['TOKEN'] = 'your_personal_access_token'
+print(user_handler.get_user_info_anonymous('inhzus'))
 ```
-
-由于 `SERIALIZE` 参数关系到模块的初始化, 所以请按照如上顺序 import 使用. 在下个版本将会优化这一问题.
 
 ### Notice
 
