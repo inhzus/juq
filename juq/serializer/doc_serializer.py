@@ -52,9 +52,9 @@ class DocDetailSerializer(DocSerializer):
     abilities: dict
 
     def __repr__(self):
-        return f'id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\n' \
-               f'slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\n' \
-               f'title: {Fore.BLUE}{self.title}{Style.RESET_ALL}\n' \
+        return f'     id: {Fore.BLUE}{self.id}{Style.RESET_ALL}\n' \
+               f'   slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\n' \
+               f'  title: {Fore.BLUE}{self.title}{Style.RESET_ALL}\n' \
                f'user_id: {Fore.BLUE}{self.user_id}{Style.RESET_ALL}\n' \
                f'book_id: {Fore.BLUE}{self.book_id}{Style.RESET_ALL}\n' \
                f'updated: {Fore.BLUE}{self.updated_at}{Style.RESET_ALL}'

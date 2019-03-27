@@ -45,6 +45,7 @@ class BookDetailSerializer(BookSerializer):
                f'   slug: {Fore.BLUE}{self.slug}{Style.RESET_ALL}\n' \
                f'   name: {Fore.BLUE}{self.name}{Style.RESET_ALL}\n' \
                f'  items: {Fore.BLUE}{self.items_count}{Style.RESET_ALL}\n' \
+               f' public: {Fore.BLUE}{self.public}{Style.RESET_ALL}\n' \
                f'user_id: {Fore.BLUE}{self.user_id}{Style.RESET_ALL}\n' \
                f'updated: {Fore.BLUE}{self.updated_at}{Style.RESET_ALL}'
 

@@ -11,6 +11,7 @@ class Config:
     API_BASE_URL = 'https://www.yuque.com/api/v2'
     API_APP_NAME = 'juq'
     TIMEOUT = 5
+    SERIALIZE = True
 
     # Constant
     CONFIG_PATH = expanduser('~/.juq')
@@ -26,6 +27,9 @@ class Config:
         except FileNotFoundError:
             self.data = {}
 
+    def __setitem__(self, key, value):
+        self.data[key] = value
+
     def __getitem__(self, item):
         if item in self.data:
             return self.data[item]
@@ -38,6 +42,10 @@ class Config:
     def __contains__(self, item):
         return item in self.data or item in self.fields
 
+    def save(self):
+        with open(Config.CONFIG_PATH, 'w') as out:
+            yaml.safe_dump(self.data, out)
+
     def __del__(self):
         # if len(self.data):
         #     with open(Config.CONFIG_PATH, 'w') as out:
@@ -49,4 +57,5 @@ config = Config()
 
 
 if __name__ == '__main__':
-    print(config['API_BASE_URL'])
+    config['API_BASE_URL'] = 'https://www.yuque.com/api/v2'
+    config.save()

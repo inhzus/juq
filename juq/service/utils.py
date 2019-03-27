@@ -22,6 +22,8 @@ def toc_line_repr(line: dict):
 
 
 def toc_repr(toc_: list):
+    if not toc_:
+        return ''
     return '\n'.join(map(toc_line_repr, toc_))
 
 
@@ -45,6 +47,8 @@ def load_toc_line(line: str):
 def load_toc(toc_: str):
     # for line in toc_.split('\n'):
     #     yield load_toc_line(line)
+    if not toc_:
+        return []
     return list(map(load_toc_line, toc_.split('\n')))
 
 
@@ -62,8 +66,10 @@ def change_doc_toc(toc: str, insert: DocDetailSerializer, before: str, after: st
 
     if before:
         after = before
-    src_toc = load_toc(toc if toc else '')
-
+    if toc:
+        src_toc = load_toc(toc if toc else '')
+    else:
+        src_toc = []
     toc_list = [line for line in src_toc if line['id'] != str(insert.id)]
     insert_toc = {'depth': depth, 'title': insert.title, 'slug': insert.slug, 'id': insert.id}
     if not before and not after:

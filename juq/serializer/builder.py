@@ -21,7 +21,9 @@ class SerializerBuilder:
     @staticmethod
     def _gen_serializer(param: dict):
         if '_serializer' not in param:
-            if 'slug' in param:
+            if 'body_html' in param:
+                param['_serializer'] = 'v2.doc_detail'
+            elif 'slug' in param:
                 param['_serializer'] = 'v2.book_toc'
             else:
                 return None
