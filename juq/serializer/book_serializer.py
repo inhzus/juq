@@ -9,7 +9,7 @@ from .user_serializer import UserSerializer
 
 
 @dataclass
-class BookSerializer:
+class RepoSerializer:
     id: int
     type: str
     slug: str
@@ -33,7 +33,7 @@ class BookSerializer:
 
 
 @dataclass
-class BookDetailSerializer(BookSerializer):
+class RepoDetailSerializer(RepoSerializer):
     toc: str
     toc_yml: str
     archived_at: str
@@ -51,7 +51,7 @@ class BookDetailSerializer(BookSerializer):
 
 
 @dataclass
-class BookTocSerializer:
+class RepoTocSerializer:
     title: str
     slug: str
     depth: int

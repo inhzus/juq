@@ -202,7 +202,7 @@ juq doc delete {repo_id} {id}
 
 ### Installation
 
-```python
+```bash
 pip3 install juq
 ```
 
@@ -259,5 +259,5 @@ Doc 的唯一标识为{repo_id} 和({slug} 或 {id}), **但 {slug} 不支持大�
 
  `from juq import user_handler, group_handler, repo_handler, doc_handler` 分别对应 API [文档](https://www.yuque.com/yuque/developer/api)
 
-详细使用说明请查看 docstring 或直接参考 API 文档传入参数即可. (正在逐步完善)
+详细使用说明请查看 docstring 或直接参考 API 文档传入参数即可.
 

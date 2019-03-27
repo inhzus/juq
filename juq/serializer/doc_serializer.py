@@ -4,7 +4,7 @@
 from dataclasses import dataclass
 from colorama import Fore, Style
 
-from .book_serializer import BookSerializer
+from .book_serializer import RepoSerializer
 from .user_serializer import UserSerializer
 
 
@@ -29,7 +29,7 @@ class DocSerializer:
     draft_version: int
     last_editor_id: int
     word_count: int
-    book: BookSerializer
+    book: RepoSerializer
     last_editor: UserSerializer
     cover: str
     custom_description: str

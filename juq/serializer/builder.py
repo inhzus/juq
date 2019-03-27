@@ -8,9 +8,9 @@ from juq.serializer import *
 
 class SerializerBuilder:
     STR_CLASS_MAP = {
-        'v2.book': BookSerializer,
-        'v2.book_toc': BookTocSerializer,
-        'v2.book_detail': BookDetailSerializer,
+        'v2.book': RepoSerializer,
+        'v2.book_toc': RepoTocSerializer,
+        'v2.book_detail': RepoDetailSerializer,
         'v2.doc': DocSerializer,
         'v2.doc_detail': DocDetailSerializer,
         'v2.group_user': GroupUserSerializer,
