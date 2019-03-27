@@ -3,10 +3,12 @@
 
 import argparse
 
-from colorama import Fore, Style
+from colorama import Fore, Style, init
 
 # noinspection PyUnresolvedReferences
 from juq.service import user_service, group_service, repo_service, doc_service, config_service
+
+init(convert=True)
 
 
 def set_user_parser(user_parser: argparse.ArgumentParser):

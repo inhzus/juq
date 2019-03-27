@@ -2,13 +2,14 @@
 # created by inhzus
 
 import setuptools
+import codecs
 
-with open('README.md', 'r') as fh:
+with codecs.open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name='juq',
-    version='1.1',
+    version='1.2.1',
     author='Zhi Sun',
     author_email='inhzus@gmail.com',
     description='Yuque SDK and command line tool.',
