@@ -18,14 +18,14 @@ def docs(q: str, offset: int, **_):
     return '\n'.join(map(repr, docs_))
 
 
-def groups(**_):
-    user_info = info()
+def groups(id_: str, **_):
+    user_info = info(id_)
     return '\n'.join(map(repr, group_handler.get_user_groups(user_info.id)))
 
 
 # noinspection PyShadowingBuiltins
-def repos(type: str, offset: int, **_):
-    user_info = info()
+def repos(id_: str, type: str, offset: int, **_):
+    user_info = info(id_)
     return '\n'.join(map(repr, repo_handler.get_user_repos(user_info.id, **filter_empty_params(locals()))))
 
 

@@ -2,7 +2,7 @@
 # created by inhzus
 
 from juq.handler import repo_handler, doc_handler
-from .utils import filter_empty_params, load_toc, toc_line_repr
+from .utils import filter_empty_params, load_toc, toc_repr
 
 
 # noinspection PyShadowingBuiltins
@@ -14,7 +14,8 @@ def toc(id_: str, **_):
     src_toc = repo_handler.get_repo_info(id_).toc
     if not src_toc:
         return 'Empty'
-    return '\n'.join(map(toc_line_repr, load_toc(src_toc)))
+    # return '\n'.join(map(toc_line_repr, load_toc(src_toc)))
+    return toc_repr(load_toc(src_toc))
 
 
 # noinspection PyShadowingBuiltins
