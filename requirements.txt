@@ -3,5 +3,5 @@ chardet==3.0.4
 colorama==0.4.1
 idna==2.8
 PyYAML==5.1
-requests==2.21.0
+requests>=2.21.0
 urllib3==1.24.1
