@@ -9,7 +9,7 @@ with codecs.open('README.md', 'r', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='juq',
-    version='1.4',
+    version='1.4.1',
     author='Zhi Sun',
     author_email='inhzus@gmail.com',
     description='Yuque SDK and command line tool.',

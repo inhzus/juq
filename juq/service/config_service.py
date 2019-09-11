@@ -6,7 +6,7 @@ from juq.config import config
 
 # noinspection PyShadowingBuiltins
 def set(key: str, value: str, **_):
-    config[key] = eval(value)
+    config[key] = str(value)
     config.save()
     return ''
 
